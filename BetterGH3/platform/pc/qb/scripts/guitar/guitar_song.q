@@ -152,12 +152,12 @@ script preload_song \{StartTime = 0
 	SetSeekPosition_Song position = <StartTime>
 endscript
 
-script songunloadfsbifdownloaded 
-	getcontentfolderindexfromfile ($song_fsb_name)
+script SongUnLoadFSBIfDownloaded 
+	GetContentFolderIndexFromFile ($song_fsb_name)
 	if NOT ($song_fsb_id = -1)
 		if (<device> = content)
-			unloadfsb \{fsb_index = $song_fsb_id}
-			spawnscriptnow downloads_closecontentfolder params = {content_index = <content_index>}
+			UnLoadFSB \{fsb_index = $song_fsb_id}
+			Downloads_CloseContentFolder content_index = <content_index>
 			change \{song_fsb_id = -1}
 			change \{song_fsb_name = 'none'}
 		endif

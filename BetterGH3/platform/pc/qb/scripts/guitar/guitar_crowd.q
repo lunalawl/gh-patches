@@ -1059,27 +1059,24 @@ script crowd_monitor_performance
 	lighters_on = false
 	begin
 	get_skill_level
-	if ($current_song = dlc19)
-		skill = good
-	endif
-	if (<skill> != bad)
+	if (<skill> != Bad)
 		if (<lighters_on> = false)
-			crowd_allsethand \{hand = right
+			Crowd_AllSetHand \{Hand = right
 				type = lighter}
-			crowd_allplayanim \{anim = special}
+			Crowd_AllPlayAnim \{Anim = special}
 			lighters_on = true
-			crowd_togglelighters \{on}
+			Crowd_ToggleLighters \{on}
 		endif
 	else
 		if (<lighters_on> = true)
-			crowd_allsethand \{hand = right
+			Crowd_AllSetHand \{Hand = right
 				type = clap}
-			crowd_allplayanim \{anim = idle}
+			Crowd_AllPlayAnim \{Anim = Idle}
 			lighters_on = false
-			crowd_togglelighters \{off}
+			Crowd_ToggleLighters \{off}
 		endif
 	endif
-	wait \{1
+	Wait \{1
 		gameframe}
 	repeat
 endscript

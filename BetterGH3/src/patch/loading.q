@@ -1,0 +1,43 @@
+// Remove old calibration tip from PC
+loading_screen_tips = [
+	$loading_tip_1
+	$loading_tip_1
+	$loading_tip_2
+	$loading_tip_2
+	$loading_tip_3
+	$loading_tip_3
+	$loading_tip_4
+	$loading_tip_4
+	$loading_tip_5
+	$loading_tip_6
+	$loading_tip_7
+	$loading_tip_8
+	$loading_tip_9
+	$loading_tip_10
+	$loading_tip_11
+	$loading_tip_12
+	$loading_tip_13
+	$loading_tip_14
+	$loading_tip_15
+	$loading_tip_16
+	$loading_tip_17
+	$loading_tip_18
+	$loading_tip_19
+	$loading_tip_20
+	$loading_tip_21
+	$loading_tip_22
+	$loading_tip_23
+	$loading_tip_24
+	$loading_tip_25
+	$loading_tip_26
+	$loading_tip_27
+	$loading_tip_28
+	$loading_tip_29
+	$loading_tip_30
+	$loading_tip_31
+	$loading_tip_32
+	$loading_tip_33
+	$loading_tip_34
+	$loading_tip_35
+	$loading_tip_36
+]

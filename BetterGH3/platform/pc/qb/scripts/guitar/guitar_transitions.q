@@ -748,17 +748,13 @@ script Transition_StopRendering
 	stoprendering
 endscript
 
-script transition_startrendering 
+script Transition_StartRendering 
 	printf \{"Transition_StartRendering"}
 	startrendering
 	enable_pause
 	change \{is_changing_levels = 0}
 	if ($blade_active = 1)
 		gh3_start_pressed
-	endif
-	if ($current_song = dlc19)
-		crowd_create_lighters
-		crowd_startlighters
 	endif
 endscript
 

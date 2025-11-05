@@ -1082,8 +1082,8 @@ script setlist_songpreview_monitor
 	if NOT ($current_setlist_songpreview = $target_setlist_songpreview)
 		change \{setlist_songpreview_changing = 1}
 		song = ($target_setlist_songpreview)
-		songunloadfsb
-		wait \{0.5
+		SongUnLoadFSB
+		Wait \{0.5
 			second}
 		if ($target_setlist_songpreview != <song> || $target_setlist_songpreview = none)
 			change \{current_setlist_songpreview = none}
@@ -1091,46 +1091,46 @@ script setlist_songpreview_monitor
 		else
 			get_song_prefix song = <song>
 			get_song_struct song = <song>
-			if structurecontains structure = <song_struct> streamname
+			if StructureContains Structure = <song_struct> streamname
 				song_prefix = (<song_struct>.streamname)
 			endif
-			if NOT songloadfsb song_prefix = <song_prefix>
+			if NOT SongLoadFSB song_prefix = <song_prefix>
 				change \{setlist_songpreview_changing = 0}
-				downloadcontentlost
+				DownloadContentLost
 				return
 			endif
-			formattext checksumname = song_preview '%s_preview' s = <song_prefix>
+			FormatText checksumname = song_preview '%s_preview' s = <song_prefix>
 			get_song_struct song = <song>
-			soundbussunlock \{music_setlist}
-			if structurecontains structure = <song_struct> name = band_playback_volume
+			SoundBussUnlock \{Music_Setlist}
+			if StructureContains Structure = <song_struct> name = band_playback_volume
 				setlistvol = ((<song_struct>.band_playback_volume))
-				setsoundbussparams {music_setlist = {vol = <setlistvol>}}
+				SetSoundBussParams {Music_Setlist = {vol = <setlistvol>}}
 			else
-				setsoundbussparams \{music_setlist = {
+				SetSoundBussParams \{Music_Setlist = {
 						vol = 0.0
 					}}
 			endif
-			soundbusslock \{music_setlist}
-			playsound <song_preview> buss = music_setlist
+			SoundBussLock \{Music_Setlist}
+			PlaySound <song_preview> buss = Music_Setlist
 			change current_setlist_songpreview = <song>
 			change \{setlist_songpreview_changing = 0}
 		endif
 	elseif NOT ($current_setlist_songpreview = none)
 		song = ($current_setlist_songpreview)
 		get_song_prefix song = <song>
-		formattext checksumname = song_preview '%s_preview' s = <song_prefix>
+		FormatText checksumname = song_preview '%s_preview' s = <song_prefix>
 		if NOT issoundplaying <song_preview>
 			change \{setlist_songpreview_changing = 1}
-			if NOT songloadfsb song_prefix = <song_prefix>
+			if NOT SongLoadFSB song_prefix = <song_prefix>
 				change \{setlist_songpreview_changing = 0}
-				downloadcontentlost
+				DownloadContentLost
 				return
 			endif
-			playsound <song_preview> buss = music_setlist
+			PlaySound <song_preview> buss = Music_Setlist
 			change \{setlist_songpreview_changing = 0}
 		endif
 	endif
-	wait \{1
+	Wait \{1
 		gameframe}
 	repeat
 endscript

@@ -996,7 +996,18 @@ script guitar_startup
 		startkeyboardhandler \{max_length = 128}
 	endif
 	printf \{"Done initializing - into game..."}
+	patchpaktext = 'patch_text.pak'
+	if French
+		patchpaktext = 'patch_text_f.pak'
+	elseif Italian
+		patchpaktext = 'patch_text_i.pak'
+	elseif German
+		patchpaktext = 'patch_text_g.pak'
+	elseif Spanish
+		patchpaktext = 'patch_text_s.pak'
+	endif
 	LoadPak 'patch.pak'
+	LoadPak <patchpaktext>
 	InitAtoms
 	SetProgressionMaxDifficulty \{difficulty = 3}
 	setup_globaltags

@@ -1755,26 +1755,22 @@ script GuitarEvent_CreateFirstGem
 endscript
 
 script first_gem_fx 
-	extendcrc <gem_id> '_particle' out = fx_id
-	if gotparam \{is_star}
+	ExtendCRC <gem_id> '_particle' out = fx_id
+	if GotParam \{is_star}
 		if ($game_mode = p2_battle || $boss_battle = 1)
 			<pos> = (125.0, 170.0)
 		else
-			if ($player1_status.star_power_used = 1)
-				<pos> = (95.0, 20.0)
-			else
-				<pos> = (255.0, 170.0)
-			endif
+			<pos> = (255.0, 170.0)
 		endif
 	else
 		<pos> = (66.0, 20.0)
 	endif
-	destroy2dparticlesystem id = <fx_id>
-	create2dparticlesystem {
+	Destroy2DParticleSystem id = <fx_id>
+	Create2DParticleSystem {
 		id = <fx_id>
 		pos = <pos>
 		z_priority = 8.0
-		material = sys_particle_lnzflare02_sys_particle_lnzflare02
+		material = sys_Particle_lnzflare02_sys_Particle_lnzflare02
 		parent = <gem_id>
 		start_color = [255 255 255 255]
 		end_color = [255 255 255 0]
@@ -1793,9 +1789,9 @@ script first_gem_fx
 		time = 1.25
 	}
 	spawnscriptnow destroy_first_gem_fx params = {gem_id = <gem_id> fx_id = <fx_id>}
-	wait \{0.8
+	Wait \{0.8
 		seconds}
-	destroy2dparticlesystem id = <fx_id> kill_when_empty
+	Destroy2DParticleSystem id = <fx_id> kill_when_empty
 endscript
 
 script destroy_first_gem_fx 
